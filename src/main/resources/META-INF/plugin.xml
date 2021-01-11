@@ -1,0 +1,50 @@
+<idea-plugin>
+  <id>test</id>
+  <name>Plugin display name here</name>
+  <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+
+  <description><![CDATA[
+    Enter short description for your plugin here.<br>
+    <em>most HTML tags may be used</em>
+    ]]></description>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+  <depends>com.intellij.modules.lang</depends>
+  -->
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+    <applicationConfigurable groupId="tools" displayName="Set Break Frequency (Hours)"
+      id="preference.BreakFrequencyConfigurable" instance="BreakTimer.BreakTimerConfigurable"/>
+  </extensions>
+  <actions>
+    <group description="Get self help because coding can be tough sometimes :)" text="Self-Care"
+      id="SelfCarePlugin.Menu">
+
+      <add-to-group anchor="last" group-id="MainMenu"/>
+
+      <action description="We all get depressed sometimes" text="Record Feelings"
+        id="SelfCare.Record" class="BreakTimer.Records"></action>
+
+      <action description="Gives tips" text="Tips!" id="SelfCare.Tips" class="BreakTimer.Tips"/>
+    </group>
+  </actions>
+
+  <project-components>
+    <component>
+      <implementation-class>BreakTimer.BreakTimerConfigurable</implementation-class>
+    </component>
+  </project-components>
+
+  <actions>
+    <!--        <group id="SelfCarePlugin.Menu" text="Self-Care"-->
+    <!--          description="Get self help because coding can be tough sometimes :)">-->
+    <!--            <add-to-group group-id="MainMenu" anchor="last"/>-->
+    <!--            <action id="SelfCare.SetBreakTimer" class="BreakTimer.BreakTimerConfigurable" text="Set Break Timer" description="Lets the-->
+    <!--             user set a repeated timer for when they want to take a break to de-stress">-->
+    <!--            </action>-->
+    <!--        </group>-->
+  </actions>
+</idea-plugin>
